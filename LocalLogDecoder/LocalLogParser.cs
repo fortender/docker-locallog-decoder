@@ -10,12 +10,29 @@ namespace LocalLogDecoder
     {
 
         public static IAsyncEnumerable<RawLogEntry> ReadEntries(string fileName, CancellationToken cancellationToken)
-            => ReadEntries([fileName], cancellationToken);
+            => ReadEntries(File.OpenRead(fileName), cancellationToken);
 
-        public static async IAsyncEnumerable<RawLogEntry> ReadEntries(string[] fileNames, [EnumeratorCancellation] CancellationToken cancellationToken)
+        public static IAsyncEnumerable<RawLogEntry> ReadEntries(string[] fileNames, CancellationToken cancellationToken)
         {
-            using var fs = new MultipleStreamWrapper(fileNames.Select(File.OpenRead));
-            var reader = PipeReader.Create(fs, new StreamPipeReaderOptions(bufferSize: 8192));
+            List<Stream> streams = [];
+            try
+            {
+                foreach (string fileName in fileNames)
+                    streams.Add(File.OpenRead(fileName));
+            }
+            catch
+            {
+                foreach (Stream stream in streams)
+                    stream.Dispose();
+                throw;
+            }
+
+            return ReadEntries(new MultipleStreamWrapper(streams), cancellationToken);
+        }
+
+        public static async IAsyncEnumerable<RawLogEntry> ReadEntries(Stream stream, [EnumeratorCancellation] CancellationToken cancellationToken)
+        {
+            var reader = PipeReader.Create(stream, new StreamPipeReaderOptions(bufferSize: 8192));
 
             while (!cancellationToken.IsCancellationRequested)
             {
