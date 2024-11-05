@@ -32,7 +32,7 @@
             int readBytes = _current.Read(buffer, offset, count);
             if (readBytes == 0)
             {
-                _current.Close();
+                _current.Dispose();
                 if (!_streams.TryDequeue(out var stream))
                     return 0;
                 _current = stream;
