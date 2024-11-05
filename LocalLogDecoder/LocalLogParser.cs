@@ -131,5 +131,4 @@ namespace LocalLogDecoder
         }
 
     }
-
 }

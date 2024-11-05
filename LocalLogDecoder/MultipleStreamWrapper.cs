@@ -1,5 +1,8 @@
 ﻿namespace LocalLogDecoder
 {
+    /// <summary>
+    /// Creates a read-only stream over an enumerable of streams. This is used to "concatenate" file streams.
+    /// </summary>
     public class MultipleStreamWrapper : Stream
     {
 

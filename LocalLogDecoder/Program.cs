@@ -16,7 +16,5 @@
                 Console.WriteLine("{0:yyyy-MM-ddTHH:mm:ss.fffffff}: {1}", entry.Timestamp, entry.Line);
             }
         }
-
     }
-
 }
