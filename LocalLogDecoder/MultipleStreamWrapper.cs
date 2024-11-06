@@ -52,6 +52,7 @@
             if (Interlocked.Exchange(ref _disposed, 1) != 0) return;
             if (disposing)
             {
+                _current.Dispose();
                 while (_streams.TryDequeue(out Stream? s))
                     s.Dispose();
             }
