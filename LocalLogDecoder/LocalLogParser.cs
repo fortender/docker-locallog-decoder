@@ -96,7 +96,7 @@ namespace LocalLogDecoder
                             break;
                         case WireType.VARINT when fieldNumber == 2:
                             ulong timeNano = ReadVarInt(ref reader);
-                            timestamp = DateTimeOffset.FromUnixTimeMilliseconds((long)(timeNano / 1_000_000));
+                            timestamp = DateTimeOffset.UnixEpoch.AddMicroseconds(timeNano / 1000);
                             break;
                         case WireType.LEN when fieldNumber == 3:
                             line = ReadString(ref reader);
