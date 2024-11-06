@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLogDecoder", "LocalLogDecoder\LocalLogDecoder.csproj", "{2D20E52F-BB73-44EE-98C2-0AF0AD00B8DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalLogDecoder", "LocalLogDecoder\LocalLogDecoder.csproj", "{2D20E52F-BB73-44EE-98C2-0AF0AD00B8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLogDecoder.Tests", "LocalLogDecoder.Tests\LocalLogDecoder.Tests.csproj", "{86BD8B08-9CF1-4BCA-8045-597F494AD0BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D20E52F-BB73-44EE-98C2-0AF0AD00B8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D20E52F-BB73-44EE-98C2-0AF0AD00B8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D20E52F-BB73-44EE-98C2-0AF0AD00B8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BD8B08-9CF1-4BCA-8045-597F494AD0BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BD8B08-9CF1-4BCA-8045-597F494AD0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BD8B08-9CF1-4BCA-8045-597F494AD0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BD8B08-9CF1-4BCA-8045-597F494AD0BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
